@@ -136,9 +136,9 @@ FROM PortfolioProject.dbo.NashvilleHousing
 
 UPDATE NashvilleHousing
 SET SoldAsVacant = CASE WHEN SoldAsVacant = 'Y' THEN 'YES'
-						WHEN SoldAsVacant = 'N' THEN 'NO'
-						ELSE SoldAsVacant
-						END
+			WHEN SoldAsVacant = 'N' THEN 'NO'
+			ELSE SoldAsVacant
+			END
 FROM PortfolioProject.dbo.NashvilleHousing
 
 
@@ -153,13 +153,13 @@ WITH RowNumCTE AS (
 SELECT *,
 	ROW_NUMBER() OVER (
 	PARTITION BY ParcelID,
-				 PropertyAddress,
-				 SalePrice,
-				 SaleDate,
-				 LegalReference
-				 ORDER BY
-					UniqueID
-					) row_num
+		 PropertyAddress,
+		 SalePrice,
+		 SaleDate,
+		 LegalReference
+		 ORDER BY
+			UniqueID
+			) row_num
 				 
 FROM PortfolioProject.dbo.NashvilleHousing
 --ORDER BY ParcelID
